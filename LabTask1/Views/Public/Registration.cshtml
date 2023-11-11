@@ -1,0 +1,64 @@
+﻿@model LabTask1.Models.RegistrationVarification
+@{
+    ViewBag.Title = "Registration";
+}
+
+<h2>Registration</h2>
+<form action="" method="post">
+    <table>
+        <tr>
+            <td class="form-text"> Name: </td>
+            <td>
+                <input type="text" name="Name" class="form-control" placeholder="Full Name" value="@(Model==null? "": Model.Name)" />
+                <br />
+                <span class="text-danger"> @Html.ValidationMessage("Name") </span>
+            </td>
+        </tr>
+        <tr>
+            <td> Username: </td>
+            <td>
+                <input type="text" name="Username" class="form-control" value="@(Model==null ? "": Model.Username)" />
+                <br />
+                <span class="text-danger"> @Html.ValidationMessage("Username") </span>
+            </td>
+        </tr>
+        <tr>
+            <td> Email: </td>
+            <td>
+                <input type="email" name="Email" value="@(Model==null? "":Model.Email)" />
+                <br />
+                <span class="text-danger"> @Html.ValidationMessage("Email") </span>
+            </td>
+        </tr>
+        <tr>
+            <td> Student ID:</td>
+            <td>
+                <input type="text" name="StudentId" value="@(Model==null? "":Model.StudentId)" />
+                <br />
+                <span class="text-danger"> @Html.ValidationMessage("StudentId") </span>
+            </td>
+        </tr>
+        <tr>
+            <td> Password: </td>
+            <td>
+                <input type="password" name="Password" value="@(Model==null?"":Model.Password)" />
+                <br />
+                <span class="text-danger"> @Html.ValidationMessage("Password") </span>
+            </td>
+        </tr>
+        <tr>
+            <td> Date Of Birth: </td>
+            <td>
+                <input type="date" name="dob" value="@(Model == null ? "" : Model.dob.ToString("yyyy-MM-dd"))" />
+                <br />
+                <span class="text-danger"> @Html.ValidationMessage("dob") </span>
+            </td>
+        </tr>
+        <tr rowspan="2">
+            <td align="center">
+                <input type="submit" name="Submit" value="Submitted" class="btn btn-success" />
+            </td>
+        </tr>
+    </table>
+</form>
+
