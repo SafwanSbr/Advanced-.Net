@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6c6a031db1854c0580ffeefcda478fbd" Name="Diagram1">
+        <EntityTypeShape EntityType="dotNetLabTask3Model.Category" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="dotNetLabTask3Model.Map_Product_Order" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="dotNetLabTask3Model.Order" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dotNetLabTask3Model.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="dotNetLabTask3Model.User" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="dotNetLabTask3Model.FK_Product_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="dotNetLabTask3Model.FK_Map_Product_Order_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="dotNetLabTask3Model.FK_Map_Product_Order_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="dotNetLabTask3Model.FK_Order_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

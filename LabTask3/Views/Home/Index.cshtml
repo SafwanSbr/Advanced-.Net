@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<form method="post" action="">
+    Email: <input type="email" name="Email" class="form-control" />
+    <br />
+    Type: 
+    <select name="UserType" class="form-select">
+        <option value="NULL" selected disabled> Select a Type</option>
+        <option value="Admin">Admin</option>
+        <option value="Customer">Customer</option>
+    </select>
+    <br />
+    <input type="submit" name="Login" class="btn btn-success" />
+</form>

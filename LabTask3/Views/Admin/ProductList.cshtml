@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "ProductList";
+}
+
+<h2>ProductList</h2>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>All Order List</title>
+</head>
+<body>
+    <table class="table-bordered" width="90%" align="center">
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Catagory</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        @foreach(var a in Model)
+            {
+                <tr>
+                    <td>@a.ID</td>
+                    <td>@a.Name</td>
+                    <td>@a.Quantity</td>
+                    <td>@a.Price</td>
+                    <td>@a.Category.Name (@a.Category_ID)</td>
+                    <td><a href="/Admin/ProductEdit/@a.ID" class="btn btn-warning">Edit</a></td>
+                    <td><a href="/Admin/ProductDelete/@a.ID" class="btn btn-danger">Delete</a></td>
+                </tr>
+            }
+    </table>
+</body>
+</html>
+

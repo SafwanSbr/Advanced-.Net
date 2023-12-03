@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>All Order List</title>
+</head>
+<body>
+    <table class="table-bordered" align="center" width="90%">
+        <tr>
+            <th>Order ID</th>
+            <th>Order Status</th>
+            <th>Customer ID</th>
+            <th>Edit Status</th>
+        </tr>
+        @foreach(var a in Model)
+            {
+                <tr>
+                    <td>@a.ID</td>
+                    <td>@a.Status</td>
+                    <td>@a.User.Name</td>
+                    @if (a.Status.Equals("Confirmed"))
+                {
+                        <td> Already Confirmed</td>
+                }
+else
+                {
+                    <td><a href="/Admin/OrderEdit/@a.ID" class="btn btn-success">Confirm</a></td>
+                }
+                </tr>
+            }
+    </table>
+</body>
+</html>

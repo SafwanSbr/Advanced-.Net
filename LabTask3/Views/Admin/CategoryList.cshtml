@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "CategoryList";
+}
+
+<h2>CategoryList</h2>
+
+<table>
+    <tr>
+        <th>Category Name</th>
+        <th>Number of Product(Type)</th>
+    </tr>
+    <!--count of associated products -->
+    @foreach (var item in ViewBag.Cat)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Products.Count</td>
+        </tr>
+    }
+</table>
