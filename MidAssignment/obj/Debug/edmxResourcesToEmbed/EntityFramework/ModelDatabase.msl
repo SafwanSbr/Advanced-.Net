@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dotNet_MidAssignmentModelStoreContainer" CdmEntityContainer="dotNet_MidAssignmentEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="dotNet_MidAssignmentModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="dotNet_MidAssignmentModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="dotNet_MidAssignmentModel.Item">
+        <MappingFragment StoreEntitySet="Item">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+          <ScalarProperty Name="RequestID" ColumnName="RequestID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Requests">
+      <EntityTypeMapping TypeName="dotNet_MidAssignmentModel.Request">
+        <MappingFragment StoreEntitySet="Request">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RequestTime" ColumnName="RequestTime" />
+          <ScalarProperty Name="CollectionTime" ColumnName="CollectionTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ResturantID" ColumnName="ResturantID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resturants">
+      <EntityTypeMapping TypeName="dotNet_MidAssignmentModel.Resturant">
+        <MappingFragment StoreEntitySet="Resturant">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

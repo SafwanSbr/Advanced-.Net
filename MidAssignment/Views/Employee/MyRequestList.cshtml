@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MidAssignment.EntityFramework.Request>
+
+@{
+    ViewBag.Title = "MyRequestList";
+}
+
+<h2>MyRequestList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CollectionTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resturant.Name)
+        </th>
+        <th>
+            Action
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CollectionTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Resturant.Name)
+        </td>
+        <td>
+            @if(item.Status == "Picking Up") {<a href="/Employee/UpdateRequest/@item.ID">Collection Done</a> }
+        </td>
+    </tr>
+}
+
+</table>

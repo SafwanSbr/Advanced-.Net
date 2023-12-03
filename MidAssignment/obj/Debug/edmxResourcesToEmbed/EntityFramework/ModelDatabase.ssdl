@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dotNet_MidAssignmentModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="ExpireDate" Type="varchar" MaxLength="50" />
+    <Property Name="RequestID" Type="int" />
+  </EntityType>
+  <EntityType Name="Request">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RequestTime" Type="varchar" MaxLength="50" />
+    <Property Name="CollectionTime" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
+    <Property Name="ResturantID" Type="int" />
+    <Property Name="EmployeeID" Type="int" />
+  </EntityType>
+  <EntityType Name="Resturant">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Location" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Item_Request">
+    <End Role="Request" Type="Self.Request" Multiplicity="0..1" />
+    <End Role="Item" Type="Self.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Request">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="RequestID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Request" Type="Self.Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_Resturant">
+    <End Role="Resturant" Type="Self.Resturant" Multiplicity="0..1" />
+    <End Role="Request" Type="Self.Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resturant">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="ResturantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dotNet_MidAssignmentModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Request" EntityType="Self.Request" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Resturant" EntityType="Self.Resturant" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Item_Request" Association="Self.FK_Item_Request">
+      <End Role="Request" EntitySet="Request" />
+      <End Role="Item" EntitySet="Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_Employee" Association="Self.FK_Request_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Request" EntitySet="Request" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_Resturant" Association="Self.FK_Request_Resturant">
+      <End Role="Resturant" EntitySet="Resturant" />
+      <End Role="Request" EntitySet="Request" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dotNet_MidAssignmentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Requests" Relationship="Self.FK_Request_Employee" FromRole="Employee" ToRole="Request" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="ExpireDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RequestID" Type="Int32" />
+    <NavigationProperty Name="Request" Relationship="Self.FK_Item_Request" FromRole="Item" ToRole="Request" />
+  </EntityType>
+  <EntityType Name="Request">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RequestTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CollectionTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ResturantID" Type="Int32" />
+    <Property Name="EmployeeID" Type="Int32" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Request_Employee" FromRole="Request" ToRole="Employee" />
+    <NavigationProperty Name="Items" Relationship="Self.FK_Item_Request" FromRole="Request" ToRole="Item" />
+    <NavigationProperty Name="Resturant" Relationship="Self.FK_Request_Resturant" FromRole="Request" ToRole="Resturant" />
+  </EntityType>
+  <EntityType Name="Resturant">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Requests" Relationship="Self.FK_Request_Resturant" FromRole="Resturant" ToRole="Request" />
+  </EntityType>
+  <Association Name="FK_Request_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Request" Type="Self.Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Item_Request">
+    <End Role="Request" Type="Self.Request" Multiplicity="0..1" />
+    <End Role="Item" Type="Self.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Request">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="RequestID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Request_Resturant">
+    <End Role="Resturant" Type="Self.Resturant" Multiplicity="0..1" />
+    <End Role="Request" Type="Self.Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resturant">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Request">
+        <PropertyRef Name="ResturantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dotNet_MidAssignmentEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Items" EntityType="Self.Item" />
+    <EntitySet Name="Requests" EntityType="Self.Request" />
+    <EntitySet Name="Resturants" EntityType="Self.Resturant" />
+    <AssociationSet Name="FK_Request_Employee" Association="Self.FK_Request_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Request" EntitySet="Requests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Item_Request" Association="Self.FK_Item_Request">
+      <End Role="Request" EntitySet="Requests" />
+      <End Role="Item" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Request_Resturant" Association="Self.FK_Request_Resturant">
+      <End Role="Resturant" EntitySet="Resturants" />
+      <End Role="Request" EntitySet="Requests" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

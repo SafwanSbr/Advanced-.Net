@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MidAssignment.EntityFramework.Request>
+
+@{
+    ViewBag.Title = "MyRequestList";
+}
+
+<h2>MyRequestList</h2>
+
+<p>
+    <a href="/Resturant/AddRequest" class="btn btn-success">Add Request</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CollectionTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResturantID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CollectionTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Resturant.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.Name)
+        </td>
+        <td>
+            <a href="/Resturant/ItemsInRequest/@item.ID" class="btn btn-success">Watch & Edit Items Into This Request</a>
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
