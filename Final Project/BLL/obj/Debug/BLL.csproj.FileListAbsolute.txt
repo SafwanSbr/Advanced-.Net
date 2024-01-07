@@ -1,0 +1,14 @@
+F:\Safwan\Semester_11\.net records\Final Project\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+F:\Safwan\Semester_11\.net records\Final Project\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+F:\Safwan\Semester_11\.net records\Final Project\BLL\bin\Debug\BLL.dll
+F:\Safwan\Semester_11\.net records\Final Project\BLL\bin\Debug\BLL.pdb
+F:\Safwan\Semester_11\.net records\Final Project\BLL\bin\Debug\AutoMapper.dll
+F:\Safwan\Semester_11\.net records\Final Project\BLL\bin\Debug\DAL.dll
+F:\Safwan\Semester_11\.net records\Final Project\BLL\bin\Debug\EntityFramework.dll
+F:\Safwan\Semester_11\.net records\Final Project\BLL\bin\Debug\DAL.pdb
+F:\Safwan\Semester_11\.net records\Final Project\BLL\bin\Debug\DAL.dll.config
+F:\Safwan\Semester_11\.net records\Final Project\BLL\bin\Debug\AutoMapper.xml
+F:\Safwan\Semester_11\.net records\Final Project\BLL\bin\Debug\EntityFramework.xml
+F:\Safwan\Semester_11\.net records\Final Project\BLL\obj\Debug\BLL.csproj.CopyComplete
+F:\Safwan\Semester_11\.net records\Final Project\BLL\obj\Debug\BLL.dll
+F:\Safwan\Semester_11\.net records\Final Project\BLL\obj\Debug\BLL.pdb
